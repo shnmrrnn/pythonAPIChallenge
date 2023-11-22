@@ -12,5 +12,12 @@
         "comment": "Tangy Lemon Flavour",
         "imageUrl": "string",
         "yumFactor": 5
+    },
+    {
+        "id": 3,
+        "name": "Carrot Cake",
+        "comment": "Made with real carrots",
+        "imageUrl": "string",
+        "yumFactor": 3
     }
 ]

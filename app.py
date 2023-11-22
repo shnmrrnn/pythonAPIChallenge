@@ -1,31 +1,12 @@
 from flask import Flask, request
 from flask_restx import Api, Resource, fields
+from utils import (load_cakes, save_cakes, get_next_id)
+from models import create_cake_model
 import json
 
 app = Flask(__name__)
 api = Api(app, version='1.0', title='Cake API', description='A simple Cake API')
-
-cake_model = api.model('Cake', {
-    'id': fields.Integer(required=True, description='The cake identifier'),
-    'name': fields.String(required=True, description='The cake name', max_length=30),
-    'comment': fields.String(required=True, description='A comment about the cake', max_length=200),
-    'imageUrl': fields.String(required=True, description='Image URL of the cake'),
-    'yumFactor': fields.Integer(required=True, description='Yum factor rating between 1 and 5', min=1, max=5)
-})
-
-def load_cakes():
-    try:
-        with open('cakes.json', 'r') as file:
-            return json.load(file)
-    except (FileNotFoundError, json.JSONDecodeError):
-        return []
-
-def save_cakes(cakes):
-    with open('cakes.json', 'w') as file:
-        json.dump(cakes, file, indent=4)
-
-def get_next_id(cakes):
-    return max(cake['id'] for cake in cakes) + 1 if cakes else 1
+cake_model = create_cake_model(api)
 
 @app.route('/')
 def home():
