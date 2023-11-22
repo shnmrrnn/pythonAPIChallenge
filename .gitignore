@@ -1,1 +1,14 @@
+# Python artifacts
+*.pyc
+*.pyo
+*.egg-info
+__pycache__/
+
+# Virtual environment
 venv/
+
+# Environment variables
+.env
+
+# Logs
+*.log

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Chocolate Cake",
+        "comment": "Delicious 5 Layers of Chocolate",
+        "imageUrl": "string",
+        "yumFactor": 5
+    },
+    {
+        "id": 2,
+        "name": "Lemon Drizzle Cake",
+        "comment": "Tangy Lemon Flavour",
+        "imageUrl": "string",
+        "yumFactor": 5
+    }
+]
